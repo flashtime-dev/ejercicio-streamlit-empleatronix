@@ -23,12 +23,14 @@ Una aplicación web interactiva para visualizar y analizar datos de empleados co
 
 ## 📦 Instalación
 
-1. Construye la imagen Docker:
+1. Comentar linea de Data Streamlit y descomentar Data Docker en el archivo *src/app.py*
+
+2. Construye la imagen Docker:
 ```bash
 docker-compose build
 ```
 
-2. Ejecuta el contenedor:
+3. Ejecuta el contenedor:
 ```bash
 docker-compose up
 ```

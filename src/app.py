@@ -5,7 +5,12 @@ import plotly.graph_objects as go
 st.title('Empleatronix')
 st.text('Todos los datos sobre los empleados en una aplicación.')
 
-data = pd.read_csv('./data/employees.csv')
+# Data para visualizar en Streamlit
+data = pd.read_csv('src/data/employees.csv')
+
+# Data para visualizar en Docker
+#data = pd.read_csv('data/employees.csv')
+
 st.dataframe(data)
 st.markdown('---')
 
@@ -23,10 +28,6 @@ fig.add_trace(go.Bar(
     marker_color=color,
     orientation='h',
     text=[f"{s}€" for s in data['salary']] if mostrar_sueldo else [],
-    textfont=dict(
-        size=16,
-        color='black'
-    ),
     textposition='outside',
 ))
 
@@ -34,19 +35,14 @@ fig.add_trace(go.Bar(
 fig.update_layout(
     yaxis=dict(
         tickvals=[] if not mostrar_nombre else None,
-        tickfont=dict(color="black", size=16),
-        tickcolor="black",
     ),
     xaxis=dict(
         range=[0, 4500],
         dtick=500,
         tickangle=270,
         tickformat=",d €",
-        tickfont=dict(color="black", size=16),
-        tickcolor="black",  
     ),
     margin=dict(l=50, r=20, t=20, b=50),  # margenes para que 4500 no se corte
-    template='simple_white',
 )
 
 # Mostrar gráfico fijo
