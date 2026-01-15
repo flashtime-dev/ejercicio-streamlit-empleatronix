@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 st.title('Empleatronix')
 st.text('Todos los datos sobre los empleados en una aplicación.')
 
-data = pd.read_csv('data/employees.csv')
+data = pd.read_csv('./data/employees.csv')
 st.dataframe(data)
 st.markdown('---')
 
