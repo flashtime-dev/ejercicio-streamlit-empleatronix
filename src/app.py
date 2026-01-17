@@ -5,7 +5,12 @@ import matplotlib.pyplot as plt
 st.title('Empleatronix')
 st.text('Todos los datos sobre los empleados en una aplicación.')
 
-data = pd.read_csv('data/employees.csv')
+# Cargar datos para Streamlit Cloud
+data = pd.read_csv('src/data/employees.csv')
+
+# Cargar datos en Docker
+#data = pd.read_csv('data/employees.csv')
+
 st.dataframe(data)
 st.markdown('---')
 
